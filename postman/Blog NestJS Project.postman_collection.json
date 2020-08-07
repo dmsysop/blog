@@ -8,6 +8,16 @@
 		{
 			"name": "GetAll",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo0LCJuYW1lIjoiRG91Z2xhcyBNIiwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AY29tYml0LmNvbS5iciIsInJvbGUiOiJhZG1pbiJ9LCJpYXQiOjE1OTY4MjQyNTIsImV4cCI6MTU5NjgzNDI1Mn0.KIkjNneXubhBgiqFgJ5_k8JYCZ9JrC8oQ2Rvclj9lLQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -31,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Douglas M\",\r\n    \"username\": \"dmsysop\",\r\n    \"email\": \"DOUGLAS@combit.com.br\",\r\n    \"password\": \"123456\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Douglas M\",\r\n    \"username\": \"admin\",\r\n    \"email\": \"admin@combit.com.br\",\r\n    \"password\": \"admin\",\r\n    \"role\": \"admin\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -105,14 +115,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/users/5",
+					"raw": "localhost:3000/users/3",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"users",
-						"5"
+						"3"
 					]
 				}
 			},
@@ -125,7 +135,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"DOUGLAS@combit.com.br\",\r\n    \"password\": \"123456\"\r\n}",
+					"raw": "{\r\n    \"email\": \"admin@combit.com.br\",\r\n    \"password\": \"admin\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -141,6 +151,35 @@
 					"path": [
 						"users",
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Role of User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/1/role",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1",
+						"role"
 					]
 				}
 			},

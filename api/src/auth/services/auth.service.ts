@@ -16,7 +16,7 @@ export class AuthService {
     return from<string>(bcrypt.hash(password, 12))
   }
 
-  comparePasswords(newPassword: string, passwordHash: string): Observable<any|boolean> {
-    return of<any|boolean>(bcrypt.compare(newPassword, passwordHash))
+  comparePasswords(newPassword: string, passwordHash: string): Observable<any> {
+    return from(bcrypt.compare(newPassword, passwordHash))
   }
 }
