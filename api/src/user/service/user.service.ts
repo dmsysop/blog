@@ -48,6 +48,7 @@ export class UserService {
         newUser.username = user.username
         newUser.email = user.email
         newUser.password = passwordHash
+        newUser.role = user.role
 
         return from(this.userRepository.save(newUser)).pipe(
           map((user: User) => {
@@ -67,6 +68,10 @@ export class UserService {
     return from(this.userRepository.update(id, user))
   }
 
+  updateRoleOfUser(id: number, user: User): Observable<any> {
+    return from(this.userRepository.update(id, user))
+  }
+
   delete(id: number): Observable<any> {
     return from(this.userRepository.delete(id))
   }
@@ -75,9 +80,7 @@ export class UserService {
     return this.validadeUser(user.email.toLowerCase(), user.password).pipe(
       switchMap((user: User) => {
         if (user) {
-          return this.authService
-            .generateJWT(user)
-            .pipe(map((jwt: string) => jwt))
+          return this.authService.generateJWT(user).pipe(map((jwt: string) => jwt))
         } else {
           return 'Crendentials Error'
         }
