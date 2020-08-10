@@ -35,7 +35,7 @@ export class AuthService {
       })
       .pipe(
         map((token) => {
-          console.log('token', token);
+          // console.log('token', token);
           localStorage.setItem('blog-token', token.access_token);
           return token;
         })
@@ -45,7 +45,7 @@ export class AuthService {
   // tslint:disable-next-line: typedef
   register(user: User) {
     return this.http.post<any>('/api/users', user).pipe(
-      tap((user) => console.log(user)),
+      // tap((user) => console.log(user)),
       map((user) => user)
     );
   }
