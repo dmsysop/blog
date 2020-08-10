@@ -21,14 +21,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/users/",
+					"raw": "localhost:3000/api/users",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"users",
-						""
+						"api",
+						"users"
 					]
 				}
 			},
@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Douglas M\",\r\n    \"username\": \"admin\",\r\n    \"email\": \"admin@combit.com.br\",\r\n    \"password\": \"admin\",\r\n    \"role\": \"admin\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Douglas M\",\r\n    \"username\": \"admin\",\r\n    \"email\": \"admin@combit.com.br\",\r\n    \"password\": \"admin123\",\r\n    \"role\": \"admin\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -49,12 +49,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/users/",
+					"raw": "localhost:3000/api/users/",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
+						"api",
 						"users",
 						""
 					]
@@ -68,14 +69,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/users/3",
+					"raw": "localhost:3000/api/users/1",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
+						"api",
 						"users",
-						"3"
+						"1"
 					]
 				}
 			},
@@ -96,12 +98,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/users/1",
+					"raw": "localhost:3000/api/users/1",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
+						"api",
 						"users",
 						"1"
 					]
@@ -115,12 +118,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/users/3",
+					"raw": "localhost:3000/api/users/3",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
+						"api",
 						"users",
 						"3"
 					]
@@ -143,12 +147,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/users/login",
+					"raw": "localhost:3000/api/users/login",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
+						"api",
 						"users",
 						"login"
 					]
@@ -171,12 +176,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/users/1/role",
+					"raw": "localhost:3000/api/users/1/role",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
+						"api",
 						"users",
 						"1",
 						"role"
