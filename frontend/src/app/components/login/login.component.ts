@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { AuthService } from './../../services/auth.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -43,4 +45,13 @@ export class LoginComponent implements OnInit {
   //     .login('admin@combit.com.br', 'admin')
   //     .subscribe((data) => console.log('SUCCESS'));
   // }
+  constructor(private authService: AuthService) {}
+
+  ngOnInit(): void {}
+
+  login() {
+    this.authService
+      .login('admin@combit.com.br', 'admin')
+      .subscribe((data) => console.log('SUCCESS'));
+  }
 }

@@ -20,9 +20,17 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 
-
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent, UsersComponent],
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+
+
+@NgModule({
+  declarations: [AppComponent, LoginComponent, RegisterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,7 +44,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatButtonModule,
     MatSelectModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

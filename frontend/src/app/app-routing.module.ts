@@ -21,6 +21,12 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent
+=======
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
 ];
 
