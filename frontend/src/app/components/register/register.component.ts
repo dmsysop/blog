@@ -9,7 +9,7 @@ import {
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from './../../services/authentication-service/auth.service';
 
 class CustomValidators {
   static passwordContainsNumber(control: AbstractControl): ValidationErrors {
