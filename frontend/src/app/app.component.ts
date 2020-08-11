@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-=======
-
 
 @Component({
   selector: 'app-root',
@@ -27,9 +25,4 @@ export class AppComponent {
   navigateTo(value) {
     this.router.navigate(['../', value]);
   }
-=======
-  styleUrls: ['./app.component.scss']
-})
-export class AppComponent {
-  title = 'frontend';
 }

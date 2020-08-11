@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, switchMap } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable, of } from 'rxjs';
 
 export interface LoginForm {
   email: string;
@@ -20,16 +22,12 @@ export interface User {
 
 export const JWT_NAME = 'blog-token';
 
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {}
 
-  // tslint:disable-next-line: typedef
   login(loginForm: LoginForm) {
     return this.http
       .post<any>('/api/users/login', {
@@ -38,25 +36,30 @@ export class AuthService {
       })
       .pipe(
         map((token) => {
-          // console.log('token', token);
-  login(email: string, password: string): Observable<any> {
-    return this.http
-      .post<any>('/api/users/login', { email, password })
-      .pipe(
-        map((token) => {
-          console.log('token', token)
-          localStorage.setItem('blog-token', token.access_token);
+          console.log('token');
+          localStorage.setItem(JWT_NAME, token.access_token);
           return token;
         })
       );
   }
 
-  // tslint:disable-next-line: typedef
   register(user: User) {
     return this.http.post<any>('/api/users', user).pipe(
-      // tap((user) => console.log(user)),
+      tap((user) => console.log(user)),
       map((user) => user)
     );
   }
 
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem(JWT_NAME);
+    return !this.jwtHelper.isTokenExpired(token);
+  }
+
+  getUserId(): Observable<number> {
+    return of(localStorage.getItem(JWT_NAME)).pipe(
+      switchMap((jwt: string) =>
+        of(this.jwtHelper.decodeToken(jwt)).pipe(map((jwt) => jwt.user.id))
+      )
+    );
+  }
 }

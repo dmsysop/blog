@@ -37,7 +37,6 @@ class CustomValidators {
     }
   }
 }
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -87,13 +86,4 @@ export class RegisterComponent implements OnInit {
       .pipe(map((user) => this.router.navigate(['login'])))
       .subscribe();
   }
-  styleUrls: ['./register.component.scss']
-})
-export class RegisterComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
